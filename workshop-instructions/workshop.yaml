@@ -1,0 +1,15 @@
+# See https://docs.edukates.io/en/latest/workshop-content/workshop-config.html?highlight=modules#specifying-structure-of-the-content
+name: Developer Workflow Workshop
+
+modules:
+  activate:
+  - intro
+  - exercises/01-git-repo
+  - exercises/02-accelerator
+  - exercises/03-timesheets
+  - exercises/04-backlog
+  - exercises/05-refactor
+  - exercises/06-add-feature
+  - exercises/07-curate-commit
+  - exercises/08-integrate
+  - wrap

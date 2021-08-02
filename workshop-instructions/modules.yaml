@@ -1,0 +1,24 @@
+# See https://docs.edukates.io/en/latest/workshop-content/workshop-config.html?highlight=modules#specifying-structure-of-the-content
+modules:
+  intro:
+    name: Workshop Overview
+    exit_sign: Start Workshop
+  exercises/01-git-repo:
+    name: Git Repository Setup
+  exercises/02-accelerator:
+    name: Accelerators
+  exercises/03-timesheets:
+    name: Review Timesheets functionality
+  exercises/04-backlog:
+    name: Review the Backlog
+  exercises/05-refactor:
+    name: Refactor to Support New Feature
+  exercises/06-add-feature:
+    name: Add New Backlog Feature
+  exercises/07-curate-commit:
+    name: Curate the Commit
+  exercises/08-integrate:
+    name: Integrate Your Work
+  wrap:
+    name: Wrap Up
+    exit_sign: Finish Workshop
