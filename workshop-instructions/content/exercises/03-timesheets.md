@@ -150,7 +150,6 @@ Take a look at some of the highlights of this class:
         ```editor:select-matching-text
         file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "Timesheet timesheetToCreate ="
-        isRegex: true
         before: 0
         after: 15
         ```
@@ -296,6 +295,9 @@ file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
     after: 4
     ```
 
+    Notice that the fields are not marked as `final`.
+    The `Timesheet` objects are *mutable*.
+
 1.  It is a JPA *Entity*:
 
     ```editor:select-matching-text
@@ -319,9 +321,36 @@ file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
     after: 0
     ```
 
-You will see later that the `Timesheet` class is also used for other
-purposes,
-and that its use may be problematic as the application evolves.
+1.  The `Timesheet` class is also used for *marshalling* data from an
+    HTTP web request to the `TimesheetController` *handler methods*.
+
+    The HTTP content and accept types of the web requests are
+    `application/json`.
+    Spring Web by default will use the `jackson` parser,
+    which requires a default constructor on the associated data classes:
+
+    ```editor:select-matching-text
+    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    text: "public Timesheet()"
+    ```
+
+    Also notice the other two constructors:
+
+    ```editor:select-matching-text
+    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    text: "public Timesheet(long projectId, long userId, LocalDate date, int hours)"
+    before: 0
+    after: 13
+    ```
+
+    This is an indicator that the `Timesheet` class may be used for
+    different reasons.
+
+Given that the Timesheet class is used for multiple reasons,
+and that it is mutable can introduce problems as the application evolves.
+
+You will see more discussion later on the topic of design issues later
+in the workshop.
 
 ### TimesheetController class
 
@@ -380,6 +409,76 @@ URL requests to the appropriate controller *handler method*.
     *marshalling* of the timesheet request data coming from the `POST`
     request,
     and convert it to a `Timesheet` object.
+
+1.  The return `ResponseEntity<Timesheet>` types tell Spring that
+    the type in the *response body* of will be `Timesheet`.
+
+    ```editor:select-matching-text
+    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    text: "ResponseEntity<Timesheet>"
+    ```
+
+1.  It is subtle but important to note that the create and update
+    handler method `Timesheet` arguments are different conceptual types
+    than than those passed back in the response bodies.
+
+    Looking at the unit test will show the difference:
+
+    ```editor:select-matching-text
+    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    text: "Timesheet timesheetToCreate ="
+    before: 0
+    after: 15
+    ```
+
+    Notice the `timesheetToCreate` object is set up with the constructor
+    *without* an id.
+    This is an example of a *Value Object*,
+    or a collection of arbitrary data that will be passed to the
+    repository for saving to a record in a database.
+
+    ```editor:select-matching-text
+    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    text: "Timesheet timesheetToCreate ="
+    before: 0
+    after: 4
+    ```
+
+    The `timesheetSaved` object reflects a persisted record or *Entity*
+    in a database,
+    which has a primary key of `id`,
+    that maps to a timesheet resource.
+
+   ```editor:select-matching-text
+    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    text: "Timesheet timesheetToSave ="
+    before: 0
+    after: 5
+    ```
+
+    The repository takes the *Value Object* as the argument,
+    and returns the *Record* or *Entity*.
+
+    ```editor:select-matching-text
+    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    text: "doReturn(timesheetSaved)"
+    before: 0
+    after: 2
+    ```
+
+    This is an example where the `Timesheet` class is used for multiple
+    purposes,
+    which breaks the *Single Responsibility Principle*,
+    and is *technical debt*.
+
+    The developers that authored the code made a concious decision to
+    break it here for the ability to move fast with a minimal codebase.
+    But as the code evolves,
+    the developers will need to improve the design by introducing
+    multiple data classes to represent the `Timesheet` REST data and
+    the database representation separately.
+
+    You will see more discussion on the topic in the next exercise.
 
 1.  Handling REST resource identifiers in requests:
 
