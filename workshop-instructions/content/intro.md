@@ -15,7 +15,8 @@ you will be able to:
     new feature.
 -   List and describe the practices,
     tools and techniques you used to implement the new feature.
--   List some of the trade-offs in the design of the new feature.
+-   List some of the trade-offs and technical debt you might encounter
+    in the design of the new feature.
 
 ## Problem Domain
 

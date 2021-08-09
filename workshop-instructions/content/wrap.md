@@ -3,6 +3,8 @@ So that is a wrap!
 You successfully:
 
 -   Navigated a backlog and assessed a story.
+-   Identified and evaluated some of the *Technical Debt* in the
+    codebase.
 -   Used *feedback loops* using *Refactoring*,
     *Test Driven Development* practices with *Red/Green/Refactor*
     technique.
