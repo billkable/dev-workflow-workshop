@@ -113,7 +113,7 @@ user name and email address:
     replace the `<replace with your email>` placeholder with your email
     address and hit enter key.
 
-## Setup Github Repository (Optional)
+## Setup Github Repository
 
 After setting up a Github account,
 you will need to set up a personal access token for authentication,
@@ -193,5 +193,5 @@ Do the following to set up your remote:
 
 ## Wrap
 
-You should be ready to go with your local and (optionally) remote
-repositories for the upcoming exercises.
+You should be ready to go with your local and remote repositories for
+the upcoming exercises.

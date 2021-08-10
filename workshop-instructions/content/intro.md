@@ -41,8 +41,8 @@ You will add a new feature for tracking stories in a backlog.
 To run the workshop, you need a modern browser,
 with custom shortcut plugins (like `Vimium`) turned off.
 
-You also need a personal [Github](https://github.com) account if you
-want to demonstrate an automated Continuous Integration build.
+You also need a personal [Github](https://github.com) account to
+demonstrate an automated Continuous Integration build.
 
 That is it.
 
