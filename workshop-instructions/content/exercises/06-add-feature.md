@@ -24,7 +24,7 @@ you will be able to:
 Make sure you start in the codebase directory:
 
 ```terminal:execute-all
-command: cd ~/exercises && clear
+command: cd ~/tracker && clear
 ```
 
 ## Workflow Explained
@@ -92,7 +92,7 @@ command: |
 1.  Implement a new unit test for the *Delete* operation:
 
     ```editor:insert-lines-before-line
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/backlog/BacklogControllerTest.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/backlog/BacklogControllerTest.java
     line: 154
     text: |4
 
@@ -118,7 +118,7 @@ command: |
 
     ```bash
     > Task :compileTestJava FAILED
-    /home/eduk8s/exercises/src/test/java/com/vmware/education/tracker/backlog/BacklogControllerTest.java:158: error: cannot find symbol
+    /home/eduk8s/tracker/src/test/java/com/vmware/education/tracker/backlog/BacklogControllerTest.java:158: error: cannot find symbol
                     controller.delete(1L);
                             ^
     symbol:   method delete(long)
@@ -131,7 +131,7 @@ command: |
 1.  Implement the scaffold for the `BacklogController.delete()` method:
 
     ```editor:insert-lines-before-line
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
     line: 48
     text: |4
 
@@ -164,14 +164,14 @@ command: |
     Select the current `null` return value:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
     text: return null;
     ```
 
     Replace with the implementation:
 
     ```editor:replace-text-selection
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
     text: |
         repository.deleteById(id);
                 return noContent().build();
@@ -196,7 +196,7 @@ You will use the *Red/Green* approach to implement the integration test:
 1.  Implement a new unit test for the *Delete* operation:
 
     ```editor:insert-lines-before-line
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/backlog/BacklogIntegrationTest.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/backlog/BacklogIntegrationTest.java
     line: 130
     text: |4
             @Test
@@ -234,7 +234,7 @@ You will use the *Red/Green* approach to implement the integration test:
 1.  Annotate the `BacklogController.delete()` handler method:
 
     ```editor:insert-lines-before-line
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
     line: 49
     text: |4
             @DeleteMapping("{id}")
@@ -246,14 +246,14 @@ You will use the *Red/Green* approach to implement the integration test:
     Select the current handler method:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
     text: ResponseEntity<Void> delete(long id) {
     ```
 
     Replace with the implementation:
 
     ```editor:replace-text-selection
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/backlog/BacklogController.java
     text: ResponseEntity<Void> delete(@PathVariable long id) {
     ```
 

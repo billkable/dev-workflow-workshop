@@ -14,7 +14,7 @@ you will need a personal
 Make sure you start in the codebase directory:
 
 ```terminal:execute-all
-command: cd ~/exercises && clear
+command: cd ~/tracker && clear
 ```
 
 ## Review the Local Git Repository

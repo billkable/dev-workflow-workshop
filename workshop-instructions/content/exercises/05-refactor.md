@@ -24,7 +24,7 @@ you will be able to:
 Make sure you start in the codebase directory:
 
 ```terminal:execute-all
-command: cd ~/exercises && clear
+command: cd ~/tracker && clear
 ```
 
 ## Prepare to Work on a Local Private Branch
@@ -82,13 +82,13 @@ Refactor the *Timesheets* classes as follows:
     Main:
 
     ```terminal:execute
-    command: mkdir ~/exercises/src/main/java/com/vmware/education/tracker/timesheets
+    command: mkdir ~/tracker/src/main/java/com/vmware/education/tracker/timesheets
     ```
 
     Test:
 
     ```terminal:execute
-    command: mkdir ~/exercises/src/test/java/com/vmware/education/tracker/timesheets
+    command: mkdir ~/tracker/src/test/java/com/vmware/education/tracker/timesheets
     ```
 
 1.  Move the *Timesheets* test and implementation classes to the
@@ -97,13 +97,13 @@ Refactor the *Timesheets* classes as follows:
     Move implementation classes:
 
     ```terminal:execute
-    command: mv ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet*.java ~/exercises/src/main/java/com/vmware/education/tracker/timesheets/
+    command: mv ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet*.java ~/tracker/src/main/java/com/vmware/education/tracker/timesheets/
     ```
 
     Move Tests:
 
     ```terminal:execute
-    command: mv ~/exercises/src/test/java/com/vmware/education/tracker/*Tests.java ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/
+    command: mv ~/tracker/src/test/java/com/vmware/education/tracker/*Tests.java ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/
     ```
 
 1.  The `TrackerApplicationIntegration` tests are now really for only
@@ -111,13 +111,13 @@ Refactor the *Timesheets* classes as follows:
     Rename the file accordingly:
 
     ```terminal:execute
-    command: mv ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/TrackerApplicationTests.java ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/TimesheetIntegrationTests.java
+    command: mv ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/TrackerApplicationTests.java ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/TimesheetIntegrationTests.java
     ```
 
     And the name:
 
     ```terminal:execute
-    command: sed -i 's/TrackerApplicationTests/TimesheetIntegrationTests/g' ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/TimesheetIntegrationTests.java
+    command: sed -i 's/TrackerApplicationTests/TimesheetIntegrationTests/g' ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/TimesheetIntegrationTests.java
     ```
 
 1.  Because you are doing a manual refactoring using file system
@@ -128,13 +128,13 @@ Refactor the *Timesheets* classes as follows:
     Fix that now for implementation classes:
 
     ```terminal:execute
-    command: sed -i 's/tracker;/tracker.timesheets;/g' ~/exercises/src/main/java/com/vmware/education/tracker/timesheets/Timesheet*.java
+    command: sed -i 's/tracker;/tracker.timesheets;/g' ~/tracker/src/main/java/com/vmware/education/tracker/timesheets/Timesheet*.java
     ```
 
     And for test classes:
 
     ```terminal:execute
-    command: sed -i 's/tracker;/tracker.timesheets;/g' ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/Timesheet*.java
+    command: sed -i 's/tracker;/tracker.timesheets;/g' ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/Timesheet*.java
     ```
 
 1.  Run your local build and tests to make sure you did not break the
@@ -161,25 +161,25 @@ classes:
 1.  `TimesheetController`:
 
     ```terminal:execute
-    command: sed -i 's/public\s//g' ~/exercises/src/main/java/com/vmware/education/tracker/timesheets/TimesheetController.java
+    command: sed -i 's/public\s//g' ~/tracker/src/main/java/com/vmware/education/tracker/timesheets/TimesheetController.java
     ```
 
 1.  `TimesheetRepository`:
 
     ```terminal:execute
-    command: sed -i 's/public\s//g' ~/exercises/src/main/java/com/vmware/education/tracker/timesheets/TimesheetRepository.java
+    command: sed -i 's/public\s//g' ~/tracker/src/main/java/com/vmware/education/tracker/timesheets/TimesheetRepository.java
     ```
 
 1.  `TimesheetControllerTests`:
 
     ```terminal:execute
-    command: sed -i 's/public\s//g' ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/TimesheetControllerTests.java
+    command: sed -i 's/public\s//g' ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/TimesheetControllerTests.java
     ```
 
 1.  `TimesheetIntegrationTests`:
 
     ```terminal:execute
-    command: sed -i 's/public\s//g' ~/exercises/src/test/java/com/vmware/education/tracker/timesheets/TimesheetIntegrationTests.java
+    command: sed -i 's/public\s//g' ~/tracker/src/test/java/com/vmware/education/tracker/timesheets/TimesheetIntegrationTests.java
     ```
 
 1.  Run your local build and tests to make sure you did not break the

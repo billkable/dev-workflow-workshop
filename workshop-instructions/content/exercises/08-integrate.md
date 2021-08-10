@@ -16,7 +16,7 @@ you will be able to:
 1.  Make sure you start in the codebase directory:
 
     ```terminal:execute-all
-    command: cd ~/exercises && clear
+    command: cd ~/tracker && clear
     ```
 
 1.  Verify your local commits:

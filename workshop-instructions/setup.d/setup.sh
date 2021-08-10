@@ -5,7 +5,7 @@ git config --global alias.lol "log --decorate --pretty=oneline --abbrev-commit"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=7200'
 
-cd ~/exercises
+cd ~/tracker
 
 unzip tracker-workshop.zip
 rm tracker-workshop.zip

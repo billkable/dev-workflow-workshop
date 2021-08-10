@@ -27,7 +27,7 @@ You will need to simulate releasing `v1` of the codebase with the
 1.  Make sure you start in the codebase directory:
 
     ```terminal:execute-all
-    command: cd ~/exercises && clear
+    command: cd ~/tracker && clear
     ```
 
 1.  Fast-forward the codebase:
@@ -63,7 +63,7 @@ You will need to simulate releasing `v1` of the codebase with the
 1.  Take a look at the project build file:
 
     ```editor:open-file
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     ```
 
     You can see that the project uses spring boot,
@@ -71,7 +71,7 @@ You will need to simulate releasing `v1` of the codebase with the
     `v1`:
 
     ```editor:select-matching-text
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     text: v1
     ```
 
@@ -100,7 +100,7 @@ This workshop covers two types of tests:
 Review the `TimesheetControllerTest` class:
 
 ```editor:open-file
-file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
 ```
 
 This class contains the *unit tests*.
@@ -114,7 +114,7 @@ Take a look at some of the highlights of this class:
 1.  Common unit tests setup:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
     text: "public void setUp()"
     before: 1
     after: 3
@@ -124,14 +124,14 @@ Take a look at some of the highlights of this class:
         class:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "@BeforeEach"
         ```
 
     -   The repository is a *Mock*.
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "repository = mock(TimesheetRepository.class)"
         ```
 
@@ -139,7 +139,7 @@ Take a look at some of the highlights of this class:
         controller:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "controller = new TimesheetController(repository)"
         ```
 
@@ -148,7 +148,7 @@ Take a look at some of the highlights of this class:
     -   The test setup phase:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "Timesheet timesheetToCreate ="
         before: 0
         after: 15
@@ -157,7 +157,7 @@ Take a look at some of the highlights of this class:
         The training of the repository *Mock* happens here:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "doReturn(timesheetSaved)"
         before: 0
         after: 2
@@ -166,7 +166,7 @@ Take a look at some of the highlights of this class:
     -   The `controller.create()` method under test:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "ResponseEntity<Timesheet> timesheetResponseEntity ="
         before: 0
         after: 1
@@ -175,7 +175,7 @@ Take a look at some of the highlights of this class:
     -   The test assertions:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "verify(repository)"
         before: 0
         after: 4
@@ -185,7 +185,7 @@ Take a look at some of the highlights of this class:
         controller-repository collaboration specification:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "verify(repository)"
         before: 0
         after: 1
@@ -194,7 +194,7 @@ Take a look at some of the highlights of this class:
         and the remaining assertions:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
         text: "assertThat(timesheetResponseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);"
         before: 0
         after: 1
@@ -208,7 +208,7 @@ You will see the remainder of the unit tests follow a similar pattern as
 Review the `TrackerApplicationTests` class:
 
 ```editor:open-file
-file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
 ```
 
 This class contains the *integration tests*.
@@ -219,14 +219,14 @@ database using the `TestRestTemplate` as an HTTP client.
     testing container within the same process:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
     text: "@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)"
     ```
 
     The web server is started on a random port:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
     text: "RANDOM_PORT"
     ```
 
@@ -234,7 +234,7 @@ database using the `TestRestTemplate` as an HTTP client.
     to:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
     text: "private TestRestTemplate restTemplate"
     before: 1
     after: 0
@@ -245,7 +245,7 @@ database using the `TestRestTemplate` as an HTTP client.
     -   The test setup:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
         text: "Timesheet timesheetToCreate ="
         before: 0
         after: 4
@@ -256,7 +256,7 @@ database using the `TestRestTemplate` as an HTTP client.
     -   The REST API under test:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
         text: "ResponseEntity<Timesheet> timesheetResponseEntity ="
         before: 0
         after: 2
@@ -265,7 +265,7 @@ database using the `TestRestTemplate` as an HTTP client.
     -   The assertion section:
 
         ```editor:select-matching-text
-        file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+        file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
         text: "assertThat(timesheetResponseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED)"
         before: 0
         after: 9
@@ -281,7 +281,7 @@ You will see the remainder of the unit tests follow a similar pattern as
 Review the `Timesheet` class:
 
 ```editor:open-file
-file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
 ```
 
 1.  It is a data class.
@@ -289,7 +289,7 @@ file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
     only fields:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
     text: "private long id;"
     before: 0
     after: 4
@@ -301,21 +301,21 @@ file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
 1.  It is a JPA *Entity*:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
     text: "@Entity"
     ```
 
     You can see it models a table named `TIMESHEET`:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
     text: "public class Timesheet"
     ```
 
     with a numeric primary key of name `ID`:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
     text: "private long id;"
     before: 1
     after: 0
@@ -330,14 +330,14 @@ file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
     which requires a default constructor on the associated data classes:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
     text: "public Timesheet()"
     ```
 
     Also notice the other two constructors:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/Timesheet.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/Timesheet.java
     text: "public Timesheet(long projectId, long userId, LocalDate date, int hours)"
     before: 0
     after: 13
@@ -357,7 +357,7 @@ in the workshop.
 Review the `TimesheetController` class:
 
 ```editor:open-file
-file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
 ```
 
 Notice the controller is a minimal Java class.
@@ -373,7 +373,7 @@ URL requests to the appropriate controller *handler method*.
     server:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
     text: "@RestController"
     before: 0
     after: 1
@@ -388,7 +388,7 @@ URL requests to the appropriate controller *handler method*.
 1.  Wiring the *create handler method*:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
     text: "@PostMapping"
     before: 0
     after: 1
@@ -401,7 +401,7 @@ URL requests to the appropriate controller *handler method*.
     `create()` handler method.
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
     text: "@RequestBody Timesheet timesheetToCreate"
     ```
 
@@ -414,7 +414,7 @@ URL requests to the appropriate controller *handler method*.
     the type in the *response body* of will be `Timesheet`.
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
     text: "ResponseEntity<Timesheet>"
     ```
 
@@ -425,7 +425,7 @@ URL requests to the appropriate controller *handler method*.
     Looking at the unit test will show the difference:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
     text: "Timesheet timesheetToCreate ="
     before: 0
     after: 15
@@ -438,7 +438,7 @@ URL requests to the appropriate controller *handler method*.
     repository for saving to a record in a database.
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
     text: "Timesheet timesheetToCreate ="
     before: 0
     after: 4
@@ -450,7 +450,7 @@ URL requests to the appropriate controller *handler method*.
     that maps to a timesheet resource.
 
    ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
     text: "Timesheet timesheetToSave ="
     before: 0
     after: 5
@@ -460,7 +460,7 @@ URL requests to the appropriate controller *handler method*.
     and returns the *Record* or *Entity*.
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TimesheetControllerTests.java
     text: "doReturn(timesheetSaved)"
     before: 0
     after: 2
@@ -483,7 +483,7 @@ URL requests to the appropriate controller *handler method*.
 1.  Handling REST resource identifiers in requests:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
     text: "/{id}"
     ```
 
@@ -504,7 +504,7 @@ URL requests to the appropriate controller *handler method*.
     It does so by use of the `@PathVariable` annotation:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetController.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetController.java
     text: "@PathVariable"
     ```
 
@@ -513,7 +513,7 @@ URL requests to the appropriate controller *handler method*.
 Review the `TimesheetRepository` interface:
 
 ```editor:open-file
-file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetRepository.java
+file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetRepository.java
 ```
 
 Notice that there is no implementation class that generates the SQL
@@ -524,7 +524,7 @@ database interaction:
 1.  CRUD application:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetRepository.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetRepository.java
     text: "CrudRepository"
     ```
 
@@ -532,7 +532,7 @@ database interaction:
     of type `Long`;
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TimesheetRepository.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TimesheetRepository.java
     text: "<Timesheet, Long>"
     ```
 

@@ -21,7 +21,7 @@ you will be able to:
 1.  Make sure you start in the codebase directory:
 
     ```terminal:execute-all
-    command: cd ~/exercises && clear
+    command: cd ~/tracker && clear
     ```
 
 ## Upgrade the version
@@ -31,14 +31,14 @@ Promote your work to version `v2` in your `build.gradle` file:
 1.  Select the existing `v1` version:
 
     ```editor:select-matching-text
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     text: v1
     ```
 
 1.  Replace it with `v2`:
 
     ```editor:replace-text-selection
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     text: v2
     ```
 

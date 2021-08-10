@@ -65,16 +65,6 @@ You should see the code editor in the details pane.
 This is where you will review the code,
 and perform some code edits.
 
-In the bottom right status bar you will see a spinner.
-Wait a minute or so,
-you should see the Java extension activated,
-and the `JAVA_PROJECTS` view in the bottom left of the navigation pane.
-
-Click on it,
-and expand the `tracker` project.
-
-You can navigate your code in a Java context.
-
 ### Terminal
 
 Switch back to the Terminal window:
@@ -94,4 +84,3 @@ command: whoami
 
 These are examples of how you will interact with your terminal and
 editors throughout this workshop.
-

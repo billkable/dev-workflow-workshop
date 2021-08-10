@@ -15,7 +15,7 @@ you will be able to:
 Make sure you start in the codebase directory:
 
 ```terminal:execute-all
-command: cd ~/exercises && clear
+command: cd ~/tracker && clear
 ```
 
 ## Verify Build
@@ -50,7 +50,7 @@ although in real projects you will.
 
 ## Review the tracker project
 
-Review the codebase under the `~/exercises` directory:
+Review the codebase under the `~/tracker` directory:
 
 Open the codebase in your editor:
 
@@ -66,20 +66,20 @@ name: Editor
     you can see project name there:
 
     ```editor:select-matching-text
-    file: ~/exercises/settings.gradle
+    file: ~/tracker/settings.gradle
     text: tracker
     ```
 
 1.  Take a look at the project build file:
 
     ```editor:open-file
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     ```
 
 1.  You can see that the *Accelerator* uses spring boot version 2.5.2:
 
     ```editor:select-matching-text
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     text: "id 'org.springframework.boot' version '2.5.2'"
     ```
 
@@ -87,7 +87,7 @@ name: Editor
     `v0`:
 
     ```editor:select-matching-text
-    file: ~/exercises/build.gradle
+    file: ~/tracker/build.gradle
     text: v0
     ```
 
@@ -96,28 +96,28 @@ name: Editor
     -   A blocking web application:
 
         ```editor:select-matching-text
-        file: ~/exercises/build.gradle
+        file: ~/tracker/build.gradle
         text: org.springframework.boot:spring-boot-starter-web
         ```
 
     -   Backed by H2 database:
 
         ```editor:select-matching-text
-        file: ~/exercises/build.gradle
+        file: ~/tracker/build.gradle
         text: com.h2database:h2
         ```
 
 1.  Verify the Github Actions continuous integration automated build:
 
     ```editor:open-file
-    file: ~/exercises/.github/workflows/pipeline.yml
+    file: ~/tracker/.github/workflows/pipeline.yml
     ```
 
 1.  Notice that Github will listen for integrations to the remote `main`
     branch:
 
     ```editor:select-matching-text
-    file: ~/exercises/.github/workflows/pipeline.yml
+    file: ~/tracker/.github/workflows/pipeline.yml
     text: "branches: [main]"
     ```
 
@@ -128,7 +128,7 @@ name: Editor
     task:
 
     ```editor:select-matching-text
-    file: ~/exercises/.github/workflows/pipeline.yml
+    file: ~/tracker/.github/workflows/pipeline.yml
     text: "./gradlew"
     ```
 
@@ -143,21 +143,21 @@ name: Editor
 1.  Review the `TrackerApplication` class:
 
     ```editor:open-file
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TrackerApplication.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TrackerApplication.java
     ```
 
     This is the Spring Boot Application with the `main()` entry point
     for running your Spring Boot java application:
 
     ```editor:select-matching-text
-    file: ~/exercises/src/main/java/com/vmware/education/tracker/TrackerApplication.java
+    file: ~/tracker/src/main/java/com/vmware/education/tracker/TrackerApplication.java
     text: "public static void main(String[] args)"
     ```
 
 1.  Review the `TrackerApplicationsTest` class:
 
     ```editor:open-file
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
     ```
 
     This is the Spring Boot Integration test.
@@ -165,7 +165,7 @@ name: Editor
     *Spring Application Context* is properly initialized when run.
 
     ```editor:select-matching-text
-    file: ~/exercises/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
+    file: ~/tracker/src/test/java/com/vmware/education/tracker/TrackerApplicationTests.java
     text: "public void contextLoads()"
     ```
 

@@ -29,7 +29,7 @@ you will be able to:
 Make sure you start in the codebase directory:
 
 ```terminal:execute-all
-command: cd ~/exercises && clear
+command: cd ~/tracker && clear
 ```
 
 ## The Backlog
